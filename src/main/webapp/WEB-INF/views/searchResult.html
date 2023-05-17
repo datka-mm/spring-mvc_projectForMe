@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Search Result</title>
+</head>
+<body>
+<h1>Search Result</h1>
+
+<div class="card" style="width: 18rem;" th:each="user:${users}">
+
+  <img th:src="${user.getPhoto()}" class="card-img-top" alt="User's image">
+  <div class="card-body">
+    <h5 class="card-title" th:text="${user.getUserName()}">User name</h5>
+    <p class="card-text" th:text="${user.getDescription()}">User's description</p>
+    <form th:method="DELETE" th:action="@{/users/{id}/delete (id=${user.getId()})}">
+      <input type="submit" th:value="Delete">
+    </form>
+    <a href="#" class="btn btn-primary">Info</a>
+    <a type="button" th:href="@{/edit/{id} (id=${user.getId()})}" class="btn btn-warning">
+      UPDATE</a>
+  </div>
+
+
+<!--</div>-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>ID</th>-->
+<!--    <th>Username</th>-->
+<!--  </tr>-->
+<!--  <th:each user="${users}">-->
+<!--    <tr>-->
+<!--      <td>${user.id}</td>-->
+<!--      <td>${user.username}</td>-->
+<!--      <td>${user.d}</td>-->
+<!--      <td>${user.username}</td>-->
+<!--    </tr>-->
+<!--  </th:each>-->
+<!--</table>-->
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New User</title>
+</head>
+<body>
+<!-- '@' menen put' ukazyvaem, a '$' menen maanini alabyz, '*' menen maanini berebiz-->
+
+<form th:method="POST" th:action="@{saveUser}" th:object="${newUser}">
+    <div>
+        <input type="hidden" name="id" th:field="*{id}">
+    </div>
+    <div class="mb-3">
+        <label for="username" class="form-label">User Name</label>
+        <input type="text" class="form-control" id="username" aria-describedby="emailHelp" th:field="*{userName}">
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <input type="text" class="form-control" id="description" th:field="*{description}">
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="text" class="form-control" id="image" th:field="*{description}">
+    </div>
+
+    <button type="submit" class="btn btn-success">SAVE</button>
+</form>
+
+<!--<form th:method="POST" th:action="@{saveUser}" th:object="${newUser}">-->
+<!--    <div>-->
+<!--        <label for="name">Name</label>-->
+<!--        <input type="text" th:field="*{userName}" id="name">-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="description">Description</label>-->
+<!--        <input type="text" th:field="*{description}" id="description">-->
+<!--    </div>-->
+
+<!--    <div>-->
+<!--        <label for="photo">Photo</label>-->
+<!--        <input type="text" th:field="*{photo}" id="photo">-->
+<!--    </div>-->
+
+<!--    <button type="submit">Save user</button>-->
+
+<!--</form>-->
+
+</body>
+</html>
